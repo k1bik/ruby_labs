@@ -1,5 +1,5 @@
 require 'rspec'
-require './CashMachine.rb'
+require_relative 'CashMachine'
 
 RSpec.describe CashMachine do
     before(:each) {File.write('balance.txt', '100.0', mode:'w')}
@@ -7,7 +7,7 @@ RSpec.describe CashMachine do
     it '#start balance' do
       allow_any_instance_of(Kernel).to receive(:gets).and_return('b', 'q')
       expect (subject.init)
-      expect(File.read('balance.txt')).to eql('100.0')
+      expect{ subject.balance }.to output("Balance is 100.0\n").to_stdout
     end
 
     it '#deposit' do
