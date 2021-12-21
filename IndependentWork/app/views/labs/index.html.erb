@@ -1,6 +1,7 @@
+<button type="button" class="btn btn-danger"><%= link_to "Sign out", destroy_admin_session_path, method: :delete%></button><br><br>
 <h1>All Labs</h1><br>
-
 <button type="button" class="btn btn-outline-primary"><%= link_to "Upload new lab", new_lab_path%></button><br><br>
+
 
 <% flash.each do |type, msg| %>
   <div class="alert alert-<%= type %>">

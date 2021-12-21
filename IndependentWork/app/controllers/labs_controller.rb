@@ -1,6 +1,6 @@
 class LabsController < ApplicationController
   before_action :find_lab, only: %i[show update destroy edit mark grade]
-
+  before_action :authenticate_admin!
   def index
     @labs = Lab.all
   end
